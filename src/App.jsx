@@ -1,4 +1,3 @@
-import { useReducer } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import NavBar from './components/NavBar'
@@ -6,33 +5,15 @@ import HomePage from './pages/HomePage'
 import DetailPage from './pages/DetailPage'
 import SavedPage from './pages/SavedPage'
 
-function savedReducer(state, action) {
-  switch (action.type) {
-    case 'ADD': {
-      const alreadySaved = state.some((product) => product.code === action.product.code)
-      if (alreadySaved) {
-        return state
-      }
-      return [...state, action.product]
-    }
-    case 'REMOVE':
-      return state.filter((product) => product.code !== action.code)
-    default:
-      return state
-  }
-}
-
 function App() {
-  const [saved, dispatch] = useReducer(savedReducer, [])
-
   return (
     <div>
-      <NavBar savedCount={saved.length} />
+      <NavBar />
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/product/:barcode" element={<DetailPage saved={saved} dispatch={dispatch} />} />
-          <Route path="/saved" element={<SavedPage saved={saved} dispatch={dispatch} />} />
+          <Route path="/product/:id" element={<DetailPage />} />
+          <Route path="/saved" element={<SavedPage />} />
         </Routes>
       </main>
     </div>
