@@ -1,4 +1,8 @@
 import { useState } from 'react'
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
+import CircularProgress from '@mui/material/CircularProgress'
+import Box from '@mui/material/Box'
 import SearchBar from '../components/SearchBar'
 import FoodList from '../components/FoodList'
 import ErrorMessage from '../components/ErrorMessage'
@@ -14,14 +18,27 @@ function HomePage() {
 	}
 
 	return (
-		<div className="page">
-			<h2>Search Nutrition Info</h2>
+		<Container maxWidth="lg" sx={{ py: 4 }}>
+			<Typography variant="h4" gutterBottom fontWeight={800}>
+				Search Nutrition Info
+			</Typography>
+			<Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+				Type any food name to see its nutrition facts.
+			</Typography>
 			<SearchBar onSearch={handleSearch} />
-			{loading && <p>Loading...</p>}
+			{loading && (
+				<Box sx={{ display: 'flex', justifyContent: 'center', mt: 6 }}>
+					<CircularProgress color="primary" />
+				</Box>
+			)}
 			{!loading && error && <ErrorMessage message={error} />}
-			{!loading && !hasSearched && !error && <p>Search for a food above to see its nutrition info.</p>}
+			{!loading && !hasSearched && !error && (
+				<Typography color="text.secondary" sx={{ mt: 4, textAlign: 'center' }}>
+					Search for a food above to see nutrition info.
+				</Typography>
+			)}
 			{!loading && hasSearched && !error && <FoodList products={results} />}
-		</div>
+		</Container>
 	)
 }
 

@@ -1,16 +1,27 @@
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
 import FoodCard from './FoodCard'
 
 function FoodList({ products }) {
 	if (products.length === 0) {
-		return <p>No results found. Try a different search.</p>
+		return (
+			<Typography color="text.secondary" sx={{ mt: 4, textAlign: 'center' }}>
+				No results found. Try a different search.
+			</Typography>
+		)
 	}
 
 	return (
-		<div className="food-list">
-			{products.map((product, index) => (
-				<FoodCard key={product.code || `${product.product_name || 'product'}-${index}`} product={product} />
-			))}
-		</div>
+		<Grid container spacing={3} sx={{ mt: 1 }}>
+			{products.map((product, index) => {
+				const productId = product.id || product.code || `${product.product_name || 'product'}-${index}`
+				return (
+					<Grid item xs={12} sm={6} md={4} key={productId}>
+						<FoodCard product={{ ...product, id: productId }} />
+					</Grid>
+				)
+			})}
+		</Grid>
 	)
 }
 
