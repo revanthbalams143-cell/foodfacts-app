@@ -11,20 +11,27 @@ body {
 }
 
 #root {
-	max-width: 960px;
+	max-width: 1080px;
 	margin: 0 auto;
-	padding: 24px 16px 40px;
+	padding: 0 16px 40px;
 }
 
-h1 {
+.page {
+	padding-top: 22px;
+}
+
+h1,
+h2 {
 	margin-bottom: 16px;
-	font-size: 2rem;
 }
 
 .search-form {
+	margin-bottom: 18px;
+}
+
+.search-input-wrap {
 	display: flex;
 	gap: 8px;
-	margin-bottom: 18px;
 }
 
 input,
@@ -35,7 +42,7 @@ button {
 	padding: 10px 12px;
 }
 
-input {
+.search-input-wrap input {
 	flex: 1;
 	min-width: 0;
 }
@@ -45,6 +52,22 @@ button {
 	background-color: #0f766e;
 	color: #ffffff;
 	border: 1px solid #0f766e;
+}
+
+.validation-error {
+	margin-top: 8px;
+	color: #b91c1c;
+	font-size: 0.9rem;
+}
+
+.error-message {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 12px;
+	border-radius: 8px;
+	background-color: #fef3c7;
+	color: #92400e;
 }
 
 .food-list {
@@ -67,6 +90,10 @@ button {
 	font-size: 1.05rem;
 }
 
+.food-card:hover {
+	border-color: #cbd5e1;
+}
+
 .food-image {
 	width: 100%;
 	height: 120px;
@@ -84,5 +111,91 @@ button {
 
 .brand {
 	color: #4b5563;
+}
+
+.navbar {
+	position: sticky;
+	top: 0;
+	z-index: 5;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 14px 0;
+	background-color: #f7f9fc;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-logo {
+	font-size: 1.15rem;
+	font-weight: 700;
+}
+
+.nav-links {
+	display: flex;
+	gap: 14px;
+}
+
+.nav-links a {
+	text-decoration: none;
+	color: #334155;
+	font-weight: 600;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.nav-links a.active {
+	color: #0f766e;
+}
+
+.badge {
+	min-width: 20px;
+	height: 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 999px;
+	background-color: #0f766e;
+	color: #fff;
+	font-size: 0.75rem;
+	padding: 0 6px;
+}
+
+.detail-page {
+	max-width: 760px;
+	margin: 22px auto 0;
+	display: grid;
+	gap: 14px;
+}
+
+.detail-header {
+	display: grid;
+	grid-template-columns: 140px 1fr;
+	gap: 12px;
+	align-items: start;
+}
+
+.nutrition-table {
+	background-color: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 10px;
+	padding: 12px;
+	display: grid;
+	gap: 8px;
+}
+
+.saved-item {
+	background-color: #ffffff;
+	border: 1px solid #e5e7eb;
+	border-radius: 12px;
+	padding: 12px;
+	display: grid;
+	gap: 10px;
+}
+
+.saved-actions {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
 }
 
