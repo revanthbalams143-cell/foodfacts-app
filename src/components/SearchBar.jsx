@@ -12,7 +12,7 @@ function SearchBar({ onSearch }) {
 		e.preventDefault()
 
 		if (!query.trim()) {
-			setValidationError('Please enter a food name to search.')
+			setValidationError('Please enter a food name.')
 			return
 		}
 
