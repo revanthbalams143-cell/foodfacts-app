@@ -16,7 +16,7 @@ class ClassFoodCard extends Component {
 	}
 
 	componentWillUnmount() {
-		console.log('ClassFoodCard unmounting')
+		console.log('ClassFoodCard unmounting now')
 	}
 
 	componentDidUpdate(prevProps) {
